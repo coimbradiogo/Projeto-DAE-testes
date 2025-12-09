@@ -13,7 +13,7 @@
       <name>class</name>
       <type>Main</type>
       <value>hierarchy</value>
-      <webElementGuid>4f07e60d-4e97-4d6c-9322-8d0904ac0a38</webElementGuid>
+      <webElementGuid>b4d12b51-3559-4f23-a19b-b33e89dbc903</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -21,7 +21,7 @@
       <name>index</name>
       <type>Main</type>
       <value>0</value>
-      <webElementGuid>069d0570-856b-45ce-990b-8c5bb5f1e0c3</webElementGuid>
+      <webElementGuid>b63ac7ce-afec-4d1b-b314-d70e43e38700</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -29,7 +29,7 @@
       <name>height</name>
       <type>Main</type>
       <value>2400</value>
-      <webElementGuid>716fba34-558c-4038-a68d-0b36f4eddfd6</webElementGuid>
+      <webElementGuid>24370a28-23c7-4b3d-a0ce-9a8e10981d94</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -37,7 +37,7 @@
       <name>rotation</name>
       <type>Main</type>
       <value>0</value>
-      <webElementGuid>70e58d02-9bbc-4433-8f7e-49ae457b4f87</webElementGuid>
+      <webElementGuid>07e4a8bb-abcd-446a-8e3a-751ab9346eb7</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -45,7 +45,7 @@
       <name>width</name>
       <type>Main</type>
       <value>1080</value>
-      <webElementGuid>30391e1d-2c28-4bc3-9d61-2ad7f2483a4c</webElementGuid>
+      <webElementGuid>3b85051f-f6fb-4d97-8be4-13578b41d76e</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -53,7 +53,7 @@
       <name>xpath</name>
       <type>Main</type>
       <value>//hierarchy</value>
-      <webElementGuid>b77fcbde-4842-42a5-8acd-55922760bc78</webElementGuid>
+      <webElementGuid>c939944a-6546-4695-9c3b-7ca87362f0fa</webElementGuid>
    </webElementProperties>
    <locator>//*[@class = 'hierarchy']</locator>
    <locatorCollection>
