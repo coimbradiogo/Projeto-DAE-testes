@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Botão Login navega para Login</description>
+   <name>US01_TC2</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>ade556e0-c565-458e-b99b-5a640749cdf2</testCaseGuid>
+</TestCaseEntity>

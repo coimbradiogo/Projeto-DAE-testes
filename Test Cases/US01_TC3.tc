@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Botão Convidado navega para prática</description>
+   <name>US01_TC3</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>74456925-f566-4e8c-b916-25011deacd66</testCaseGuid>
+</TestCaseEntity>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Login inválido</description>
+   <name>US02_TC2</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>c1dc3ad9-e44b-46e6-8e4b-ebcb8953db62</testCaseGuid>
+</TestCaseEntity>

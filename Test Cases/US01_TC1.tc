@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Verificar botões no ecrã inicial</description>
+   <name>US01_TC1</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>1de8a3ab-f64e-4fb3-9fbf-1dd3d08616d5</testCaseGuid>
+</TestCaseEntity>

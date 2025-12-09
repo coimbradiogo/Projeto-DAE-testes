@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Login válido</description>
+   <name>US02_TC1</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>d917c2b6-f04f-41d7-b42c-5bf1f6592f63</testCaseGuid>
+</TestCaseEntity>
