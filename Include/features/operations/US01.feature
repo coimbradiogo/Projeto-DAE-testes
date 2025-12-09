@@ -23,4 +23,3 @@ Feature: Entry Options Display
     And I tap the "Jogar como Convidado" button
     Then I see the practice mode screen
     And I close the AUT
-
