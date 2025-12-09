@@ -17,8 +17,9 @@ class HomeStepDefs {
 
 	@When("I start the application")
 	def startApplication() {
-		Mobile.startApplication('C:\\Users\\coimb\\StudioProjects\\Taes-Grupo3-Codigo-PL3\\app\\build\\outputs\\apk\\debug\\app-debug.apk', true)
+		Mobile.startApplication('C:\\Users\\coimb\\StudioProjects\\Taes-Grupo3-Codigo-PL3\\app\\build\\outputs\\apk\\debug\\app-debug.apk', false)
 	}
+
 
 	@Then("I see the entry buttons for login and guest")
 	def seeEntryButtons() {

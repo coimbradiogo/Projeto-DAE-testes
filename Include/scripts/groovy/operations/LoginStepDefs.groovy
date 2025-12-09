@@ -4,10 +4,7 @@ import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
 import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
 import com.kms.katalon.core.testobject.TestObject
 import com.kms.katalon.core.testobject.ConditionType
-import cucumber.api.java.en.And
-import cucumber.api.java.en.Then
-import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
-import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
+import com.kms.katalon.core.model.FailureHandling
 import cucumber.api.java.en.And
 import cucumber.api.java.en.Then
 
@@ -30,19 +27,32 @@ class LoginStepDefs {
 				'errada', 0)
 		Mobile.tap(findTestObject('Object Repository/android.widget.Button - Entrar'), 0)
 	}
+	
+	@And("I login with empty balance account")
+	def loginEmptyBalance() {
+		Mobile.setText(findTestObject('Object Repository/android.widget.EditText - Email'), 'a2@mail.pt', 0)
+		Mobile.setText(findTestObject('Object Repository/android.widget.EditText - Password'), '123', 0)
+		Mobile.tap(findTestObject('Object Repository/android.widget.Button - Entrar'), 0)
+	}
+
 
 	@Then("I see the dashboard screen")
 	def seeDashboard() {
 		Mobile.verifyElementExist(findTestObject('Object Repository/android.widget.TextView - Ol, First Administrator'), 0)
 	}
+	
+	@Then("I see the dashboard screenn")
+	def seeeDashboard() {
+		Mobile.verifyElementExist(findTestObject('Object Repository/android.widget.TextView - Ol, Second Administrator'), 0)
+	}
 
 	@Then("I see a login error message")
-    def seeLoginError() {
-        String expectedText = "Credenciais incorretas"
-        
-        TestObject dynamicToast = new TestObject()
-        dynamicToast.addProperty("xpath", ConditionType.EQUALS, "//*[@text='" + expectedText + "']")
-        
-        Mobile.verifyElementExist(dynamicToast, 5)
-    }
+	def seeLoginError() {
+		String expectedText = "Credenciais incorretas"
+
+		TestObject dynamicToast = new TestObject()
+		dynamicToast.addProperty("xpath", ConditionType.EQUALS, "//*[@text='" + expectedText + "']")
+
+		Mobile.verifyElementExist(dynamicToast, 5)
+	}
 }
