@@ -27,7 +27,7 @@ class LoginStepDefs {
 				'errada', 0)
 		Mobile.tap(findTestObject('Object Repository/android.widget.Button - Entrar'), 0)
 	}
-	
+
 	@And("I login with empty balance account")
 	def loginEmptyBalance() {
 		Mobile.setText(findTestObject('Object Repository/android.widget.EditText - Email'), 'a2@mail.pt', 0)
@@ -40,7 +40,7 @@ class LoginStepDefs {
 	def seeDashboard() {
 		Mobile.verifyElementExist(findTestObject('Object Repository/android.widget.TextView - Ol, First Administrator'), 0)
 	}
-	
+
 	@Then("I see the dashboard screenn")
 	def seeeDashboard() {
 		Mobile.verifyElementExist(findTestObject('Object Repository/android.widget.TextView - Ol, Second Administrator'), 0)
