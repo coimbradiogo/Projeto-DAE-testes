@@ -1,10 +1,10 @@
 @US30
-Feature: New Item Notification
+Feature: Notification Preferences
   As a registered user
-  I want to receive notifications when buying items in the shop
-  So that I can discover new items quickly
+  I want to enable or disable notifications in settings
+  So that I can control what I receive
 
-  Scenario: User receives push notification about shop purchase
+  Scenario: User toggles notification settings
     Given I have the device ready
     When I start the application
     And I tap the "Fazer Login" button
@@ -12,6 +12,14 @@ Feature: New Item Notification
     Then I see the dashboard screen
     When I tap the "Definições" button
     Then I should see the settings screen
-    When I tap the "Testar Notificação Loja" button
-    Then I should see a push notification about a new item
+    
+    # Testar Toggle do Ranking
+    When I toggle the "Ranking" switch
+    Then The "Ranking" switch should be disabled
+    When I toggle the "Ranking" switch
+    Then The "Ranking" switch should be enabled
+    
+    # Testar Toggle da Loja
+    When I toggle the "Loja" switch
+    Then The "Loja" switch should be disabled
     And I close the AUT

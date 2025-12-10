@@ -1,10 +1,10 @@
-@US25
-Feature: Apply Avatar
-  As a player
-  I want to select a purchased avatar
-  So that I can use it on my profile
+@US23
+Feature: Shop Access
+  As a registered user
+  I want to access the customization shop
+  So that I can buy cosmetic items
 
-  Scenario: User equips a purchased avatar
+  Scenario: User views available items in the shop
     Given I have the device ready
     When I start the application
     And I tap the "Fazer Login" button
@@ -12,6 +12,5 @@ Feature: Apply Avatar
     Then I see the dashboard screen
     When I tap the "Loja" button
     Then I should see the shop screen
-    When I select an available avatar to equip
-    Then I should see the avatar marked as equipped
+    And I should see a list of items with prices
     And I close the AUT

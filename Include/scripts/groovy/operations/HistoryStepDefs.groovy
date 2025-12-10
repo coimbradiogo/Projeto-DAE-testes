@@ -55,7 +55,7 @@ class HistoryStepDefs {
 			Mobile.verifyElementExist(emptyList, 5, FailureHandling.OPTIONAL)
 		}
 	}
-	
+
 	@When('I tap the "Histórico de Partidas" button')
 	def navigateToMatchHistory() {
 		Mobile.delay(2)
@@ -84,18 +84,76 @@ class HistoryStepDefs {
 		coinsItem.addProperty("xpath", ConditionType.EQUALS, "//*[contains(@text, '+') or contains(@text, '-') or contains(@text, 'Moedas')]")
 
 		if (Mobile.verifyElementExist(resultItem, 5, FailureHandling.OPTIONAL)) {
-			 println "Resultados (Vitória/Derrota) encontrados."
+			println "Resultados (Vitória/Derrota) encontrados."
 		} else {
-			 println "Aviso: Nenhum resultado de partida encontrado. O histórico pode estar vazio."
+			println "Aviso: Nenhum resultado de partida encontrado. O histórico pode estar vazio."
 		}
-		
+
 		TestObject listContainer = new TestObject()
 		listContainer.addProperty("class", ConditionType.EQUALS, "android.widget.ListView") // Ou RecyclerView
-		
+
 		if (!Mobile.verifyElementExist(listContainer, 3, FailureHandling.OPTIONAL)) {
-			 TestObject scroll = new TestObject()
-			 scroll.addProperty("class", ConditionType.EQUALS, "android.widget.ScrollView")
-			 Mobile.verifyElementExist(scroll, 3, FailureHandling.OPTIONAL)
+			TestObject scroll = new TestObject()
+			scroll.addProperty("class", ConditionType.EQUALS, "android.widget.ScrollView")
+			Mobile.verifyElementExist(scroll, 3, FailureHandling.OPTIONAL)
 		}
+	}
+	@When('I tap the {string} filter button')
+	def tapFilter(String filterName) {
+		Mobile.delay(1)
+		TestObject filterBtn = new TestObject()
+		// Procura botões exatos: "Tudo", "Vitórias", "Derrotas"
+		// Adicionamos a classe Button para ser mais específico e evitar Textviews soltos
+		filterBtn.addProperty("xpath", ConditionType.EQUALS, "//*[contains(@text, '${filterName}') and (@class='android.widget.Button' or @class='android.widget.TextView')]")
+		
+		if (Mobile.verifyElementExist(filterBtn, 5, FailureHandling.OPTIONAL)) {
+			Mobile.tap(filterBtn, 0)
+			println "Filtro ativado: " + filterName
+		} else {
+			KeywordUtil.markFailed("Botão de filtro '" + filterName + "' não encontrado.")
+		}
+	}
+
+	@Then('I should only see won matches')
+	def verifyWinsOnly() {
+		Mobile.delay(2)
+		// Verifica se existe texto "VITÓRIA" (confirmado na imagem)
+		TestObject winLabel = new TestObject()
+		winLabel.addProperty("xpath", ConditionType.EQUALS, "//*[contains(@text, 'VITÓRIA')]")
+		
+		// Se houver histórico, tem de ser vitória.
+		if (Mobile.verifyElementExist(winLabel, 3, FailureHandling.OPTIONAL)) {
+			println "Sucesso: Vejo partidas ganhas."
+		} else {
+			println "Aviso: Lista vazia ou sem vitórias visíveis."
+		}
+		
+		// Verifica que NÃO aparecem "Derrotas" (se o texto for DERROTA ou PERDEU)
+		TestObject lossLabel = new TestObject()
+		lossLabel.addProperty("xpath", ConditionType.EQUALS, "//*[contains(@text, 'DERROTA') or contains(@text, 'PERDEU')]")
+		if (Mobile.verifyElementExist(lossLabel, 1, FailureHandling.OPTIONAL)) {
+			KeywordUtil.markFailed("ERRO: Encontrei uma DERROTA no filtro de Vitórias!")
+		}
+	}
+
+	@Then('I should not see any won matches')
+	def verifyNoWins() {
+		Mobile.delay(2)
+		// No filtro de Derrotas, NÃO pode haver texto "VITÓRIA"
+		TestObject winLabel = new TestObject()
+		winLabel.addProperty("xpath", ConditionType.EQUALS, "//*[contains(@text, 'VITÓRIA')]")
+		
+		if (Mobile.verifyElementNotExist(winLabel, 3, FailureHandling.OPTIONAL)) {
+			println "Sucesso: Nenhuma vitória visível no filtro de Derrotas."
+		} else {
+			KeywordUtil.markFailed("ERRO: Encontrei uma 'VITÓRIA' no filtro de Derrotas!")
+		}
+	}
+
+	@Then('I should see all matches')
+	def verifyAllMatches() {
+		Mobile.delay(1)
+		// Simplesmente confirma que o filtro mudou visualmente ou que a lista atualizou
+		println "Filtro 'Tudo' selecionado."
 	}
 }

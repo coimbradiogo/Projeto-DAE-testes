@@ -1,10 +1,10 @@
 @US24
-Feature: Shop Access
-  As a registered user
-  I want to access the customization shop
-  So that I can buy cosmetic items
+Feature: Purchase Avatars
+  As a player
+  I want to buy new avatars
+  So that I can customize my appearance
 
-  Scenario: User views available items in the shop
+  Scenario: User buys an avatar successfully
     Given I have the device ready
     When I start the application
     And I tap the "Fazer Login" button
@@ -12,5 +12,7 @@ Feature: Shop Access
     Then I see the dashboard screen
     When I tap the "Loja" button
     Then I should see the shop screen
-    And I should see a list of items with prices
+    When I attempt to buy an available avatar
+    Then I should see the avatar unlocked
+    And I should see my coin balance decreased
     And I close the AUT
